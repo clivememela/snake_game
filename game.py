@@ -25,6 +25,7 @@ class Game:
         self.food = Food(self.snake.body)
         self.score = 0
         self.game_over = False
+        self.paused = True
         self.speed = 3
 
     # === INPUT HANDLING ===
@@ -37,12 +38,17 @@ class Game:
                 sys.exit()
 
             # === KEYDOWN ====
+            if event.type == pygame.MOUSEBUTTONDOWN and not self.game_over:
+                self.paused = not self.paused
+
             if event.type == pygame.KEYDOWN:
-                 # ==== Directional Input ====
                  if event.key == pygame.K_q:
                     pygame.quit()
                     sys.exit()
                  if not self.game_over:
+                    arrow_keys = (pygame.K_UP, pygame.K_DOWN, pygame.K_LEFT, pygame.K_RIGHT)
+                    if event.key in arrow_keys:
+                        self.paused = False
                     if   event.key == pygame.K_UP:    self.snake.set_direction(UP)
                     elif event.key == pygame.K_DOWN:  self.snake.set_direction(DOWN)
                     elif event.key == pygame.K_LEFT:  self.snake.set_direction(LEFT)
@@ -57,6 +63,17 @@ class Game:
     def draw_ui(self):
         score_text = self.font.render(f"Score: {self.score}", True, WHITE)
         self.screen.blit(score_text, (10, 10))
+
+        if self.paused and not self.game_over:
+            overlay = pygame.Surface((WIDTH, HEIGHT))
+            overlay.set_alpha(170)
+            overlay.fill((0, 0, 0))
+            self.screen.blit(overlay, (0, 0))
+
+            title = self.font.render("SNAKE", True, WHITE)
+            hint  = self.font.render("Press any arrow key or click to start", True, WHITE)
+            self.screen.blit(title, title.get_rect(center=(WIDTH // 2, HEIGHT // 2 - 20)))
+            self.screen.blit(hint,  hint.get_rect(center=(WIDTH // 2, HEIGHT // 2 + 20)))
 
         if self.game_over:
             overlay = pygame.Surface((WIDTH, HEIGHT))
@@ -94,7 +111,7 @@ class Game:
 
     def update(self):
         # ==== Update Snake Position ====
-        if self.game_over:
+        if self.game_over or self.paused:
             return
 
         self.snake.move()
