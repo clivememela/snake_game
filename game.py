@@ -82,8 +82,8 @@ class Game:
             self.screen.blit(overlay, (0, 0))
 
             game_over = self.font.render("GAME OVER", True, WHITE)
-            restart   = self.font.render("Press R/r To Restart", True, WHITE)
-            quit_text = self.font.render("Press Q/q To Quit", True, WHITE)
+            restart   = self.font.render("Press R-r To Restart", True, WHITE)
+            quit_text = self.font.render("Press Q-q To Quit", True, WHITE)
 
             self.screen.blit(
                 game_over,

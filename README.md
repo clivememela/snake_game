@@ -74,8 +74,8 @@ python main.py
 | ↓ Arrow | Move Down                 |
 | ← Arrow | Move Left                 |
 | → Arrow | Move Right                |
-| R/r     | Restart (after game over) |
-| Q/q     | Quit (anytime)            |
+| R-r     | Restart (after game over) |
+| Q-q     | Quit (anytime)            |
 
 ---
 

@@ -9,9 +9,9 @@ from helpers import get_direction, direction_name
 class Snake:
     def __init__(self):
         self.body = [
-            (9, 6),
-            (9, 7),
-            (10, 7),
+            (9, 9),
+            (10, 9),
+            (11, 9),
         ]
         self.direction = LEFT
         self.grow = False
