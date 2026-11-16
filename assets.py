@@ -29,8 +29,8 @@ def load_sprites():
         "body-vertical":   load_image("body-vertical.png"),
         "body-horizontal": load_image("body-horizontal.png"),
 
-        "body-turn-dr-rd": load_image("body-turn-drrd.png"),
-        "body-turn-ld-dl": load_image("body-turn-lddl.png"),
-        "body-turn-ul-lu": load_image("body-turn-ullu.png"),
-        "body-turn-ur-ru": load_image("body-turn-urru.png"),
+        "body-turn-drrd": load_image("body-turn-drrd.png"),
+        "body-turn-lddl": load_image("body-turn-lddl.png"),
+        "body-turn-ullu": load_image("body-turn-ullu.png"),
+        "body-turn-urru": load_image("body-turn-urru.png"),
     }

@@ -25,7 +25,7 @@ class Game:
         self.food = Food(self.snake.body)
         self.score = 0
         self.game_over = False
-        self.speed = 5
+        self.speed = 3
 
     # === INPUT HANDLING ===
     def handle_input(self):
@@ -107,7 +107,7 @@ class Game:
             self.snake.grow = True
             self.food.respawn(self.snake.body)
             self.score += 1
-            self.speed = self.speed + 0.5
+            self.speed = min(self.speed + 0.5, 20)
 
     # === MAIN LOOP ===
     def run(self):

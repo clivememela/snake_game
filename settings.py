@@ -23,13 +23,18 @@ OPPOSITE = {
 }
 
 # ========== TURN SPRITES ==========
+# prev = segment - head_side_neighbour, next = segment - tail_side_neighbour
 TURN_SPRITES = {
-    (DOWN,  LEFT):  "body-turn-ld-dl",
-    (LEFT,  DOWN):  "body-turn-ld-dl",
-    (DOWN,  RIGHT): "body-turn-dr-rd",
-    (RIGHT, DOWN):  "body-turn-dr-rd",
-    (RIGHT, UP):    "body-turn-ur-ru",
-    (UP,    RIGHT): "body-turn-ur-ru",
-    (UP,    LEFT):  "body-turn-ul-lu",
-    (LEFT,  UP):    "body-turn-ul-lu",
+    # body-turn-drrd: snake body at bottom-right corner (right <-> down)
+    (LEFT,  UP):   "body-turn-drrd",
+    (UP,    LEFT): "body-turn-drrd",
+    # body-turn-lddl: snake body at bottom-left corner (left <-> down)
+    (RIGHT, UP):   "body-turn-lddl",
+    (UP,    RIGHT):"body-turn-lddl",
+    # body-turn-ullu: snake body at top-left corner (left <-> up)
+    (RIGHT, DOWN): "body-turn-ullu",
+    (DOWN,  RIGHT):"body-turn-ullu",
+    # body-turn-urru: snake body at top-right corner (right <-> up)
+    (LEFT,  DOWN): "body-turn-urru",
+    (DOWN,  LEFT): "body-turn-urru",
 }
